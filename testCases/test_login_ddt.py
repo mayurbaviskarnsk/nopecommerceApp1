@@ -1,16 +1,14 @@
 import time
-from selenium import webdriver
 from pageObjects.loginPage import login
 import pytest
 from utilities.readproperties import Readconfig
 from utilities.customlogger import LogGen
 from utilities.XLUtils import XLUtils
-import logging
-import openpyxl
 
 class Test_002_DDT_login:
     baseurl = Readconfig.getApplicationurl()
     path="./testData/testdata.xlsx"
+
     logger=LogGen.loggen()
 
     def test_login_ddt(self,setup):
@@ -29,6 +27,7 @@ class Test_002_DDT_login:
             self.obj.setusername(self.user)
             self.obj.setpassword(self.password)
             self.obj.clicklogin()
+            print("success")
             # time.sleep(5)
             act_title = self.driver.title
             exp_title = "Dashboard / nopCommerce administration"

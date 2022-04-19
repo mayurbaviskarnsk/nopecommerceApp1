@@ -15,12 +15,12 @@ class login:
 
     def setusername(self,username):
         self.driver.find_element(By.ID,self.testbox_UserName_id).clear()
-        time.sleep(2)
+        time.sleep(5)
         self.driver.find_element(By.ID,self.testbox_UserName_id).send_keys(username)
 
     def setpassword(self,password):
         self.driver.find_element(By.ID,self.testbox_Password_id).clear()
-        time.sleep(2)
+        time.sleep(5)
         self.driver.find_element(By.ID,self.testbox_Password_id).send_keys(password)
 
     def clicklogin(self):

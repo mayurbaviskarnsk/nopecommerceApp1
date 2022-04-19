@@ -3,6 +3,9 @@ import time
 from selenium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.select import Select
+from selenium.webdriver.support.wait import WebDriverWait
+from selenium.webdriver.support import expected_conditions as EC
+
 
 
 class Registration:
@@ -39,8 +42,10 @@ class Registration:
 
         def clickoncustomermenu(self):
                 self.driver.find_element(By.XPATH,self.Customers_Xpath).click()
+                time.sleep(10)
 
-        def clickoncustomermenuitem(self):
+        def clickoncustomeritem(self):
+                WebDriverWait(self.driver,10).until(EC.visibility_of_element_located((By.XPATH,self.Customers_Xpath)))
                 self.driver.find_element(By.XPATH,self.sub_Customers_Xpath).click()
 
         def clickonAddNew(self):
